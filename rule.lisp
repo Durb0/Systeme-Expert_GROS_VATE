@@ -4,6 +4,16 @@
     actions
 )
 
+
+
+(defun do-actions (rule)
+    ;do all actions
+    (loop for action in (rule-actions rule)
+        do (eval action)
+    )
+)
+
+
 (defun check-conditions (rule facts)
     ;check all conditions, return true if all conditions are true
     ;(print facts)
@@ -13,13 +23,6 @@
             )
     )
     t
-)
-
-(defun do-actions (rule)
-    ;do all actions
-    (loop for action in (rule-actions rule)
-        do (eval action)
-    )
 )
 
 
